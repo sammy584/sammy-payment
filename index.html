@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Sammy Store</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#000000,#0a1f44,#001f3f);
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:400px;
+    margin:30px auto;
+}
+
+.card{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.6);
+}
+
+.method-title{
+    font-size:17px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.number-box{
+    background: rgba(255,255,255,0.08);
+    padding:12px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+button{
+    padding:8px 15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    opacity:0.85;
+}
+
+.copy-btn{
+    background:#00bfff;
+    color:black;
+}
+
+.qr-img{
+    width:100%;
+    border-radius:15px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.admin-text{
+    text-align:center;
+    font-size:15px;
+    margin-bottom:15px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="card">
+<div class="method-title">📲 DANA</div>
+<div class="number-box">
+<span id="dana">08811397381</span>
+<button class="copy-btn" onclick="copyText('dana')">Salin</button>
+</div>
+</div>
+
+<div class="card">
+<div class="method-title">💙 GoPay</div>
+<div class="number-box">
+<span id="gopay">08984356112</span>
+<button class="copy-btn" onclick="copyText('gopay')">Salin</button>
+</div>
+</div>
+
+<div class="card">
+<div class="method-title">💜 OVO</div>
+<div class="number-box">
+<span id="ovo">08811397381</span>
+<button class="copy-btn" onclick="copyText('ovo')">Salin</button>
+</div>
+</div>
+
+<div class="card">
+<div class="method-title">📷 QRIS</div>
+<img src="qris.png" class="qr-img" onclick="zoomQR()">
+<div style="margin-top:10px;">
+<button class="copy-btn" onclick="zoomQR()">Perbesar</button>
+</div>
+</div>
+
+<div class="card">
+<div class="admin-text">
+Kirim bukti ke admin utama
+</div>
+
+<div style="text-align:center;">
+<button onclick="waAdmin()" 
+style="background:#25D366; color:white; margin-bottom:10px;">
+WhatsApp Admin
+</button>
+<br>
+<button onclick="teleAdmin()" 
+style="background:#0088cc; color:white;">
+Telegram Admin
+</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function copyText(id){
+    let text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(()=>{
+        alert("Nomor berhasil disalin ✅");
+    });
+}
+
+function zoomQR(){
+    window.open("qris.png","_blank");
+}
+
+function waAdmin(){
+    window.open("https://wa.me/6283107288718?text=Halo%20admin,%20saya%20sudah%20transfer%20dan%20ini%20bukti%20nya.","_blank");
+}
+
+function teleAdmin(){
+    window.open("https://t.me/sennojasbug","_blank");
+}
+</script>
+
+</body>
+  </html>
